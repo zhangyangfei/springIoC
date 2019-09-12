@@ -1,5 +1,8 @@
 package com.zyf.springIoC.config;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
@@ -15,9 +18,10 @@ public class PojoConfig {
 	 * 
 	 * @return
 	 */
-	@Bean(name = "peopleBean") // 方法返回的实例装备到SpringIoC容器中。给bean命名为userBean。
+	//@Bean(name = "peopleBean") // 方法返回的实例装备到SpringIoC容器中。给bean命名为userBean。
+	@Bean(name = "peopleBean",initMethod = "initPeople",destroyMethod="destoryPeople") //
 	// @Bean//bean的名称默认为方法名，首字母变成小写
-	@Scope("prototype") //多例模式
+	// @Scope("prototype") //多例模式
 	public People initPeople() {
 		People people = new People();
 		people.setId(1);
@@ -25,4 +29,5 @@ public class PojoConfig {
 		people.setNote("测试SpringIoC配置bean");
 		return people;
 	}
+	
 }

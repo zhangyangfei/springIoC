@@ -8,6 +8,14 @@ public class People implements Serializable {
 	private String name;
 	private String note;
 
+	public void initPeople(){
+		System.out.println("initPeople....");
+	}
+	
+	public void destoryPeople(){
+		System.out.println("destoryPeople...");
+	}
+	
 	public int getId() {
 		return id;
 	}
