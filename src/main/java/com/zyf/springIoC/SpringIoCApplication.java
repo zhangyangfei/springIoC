@@ -20,10 +20,11 @@ public class SpringIoCApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringIoCApplication.class, args);
-		ApplicationContext ac = new AnnotationConfigApplicationContext(PojoConfigBusinessPerson.class);
-		Person bp = ac.getBean(Person.class);
-		System.out.print("Person.animalService : ");
-		bp.animalService();
+//		ApplicationContext ac = new AnnotationConfigApplicationContext(PojoConfigBusinessPerson.class);
+//		Person bp = ac.getBean(Person.class);
+//		System.out.print("Person.animalService : ");
+//		bp.animalService();
+		test装配bean();
 	}
 
 	static void test获取bean() {

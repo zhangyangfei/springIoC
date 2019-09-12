@@ -2,6 +2,7 @@ package com.zyf.springIoC.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
 
 import com.zyf.springIoC.pojo.People;
 
@@ -16,6 +17,7 @@ public class PojoConfig {
 	 */
 	@Bean(name = "peopleBean") // 方法返回的实例装备到SpringIoC容器中。给bean命名为userBean。
 	// @Bean//bean的名称默认为方法名，首字母变成小写
+	@Scope("prototype") //多例模式
 	public People initPeople() {
 		People people = new People();
 		people.setId(1);
