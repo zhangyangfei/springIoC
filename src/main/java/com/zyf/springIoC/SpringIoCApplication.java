@@ -20,14 +20,17 @@ public class SpringIoCApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringIoCApplication.class, args);
-		ApplicationContext ac = new AnnotationConfigApplicationContext(PojoConfigBusinessPerson.class);
-		Person bp = ac.getBean(Person.class);
-//		System.out.print("Person.animalService : ");
-//		bp.animalService();
 //		test装配bean();
 //		test获取bean();
+		test条件获取Bean();
 	}
 
+	@SuppressWarnings("resource")
+	static void test条件获取Bean() {
+		ApplicationContext ac = new AnnotationConfigApplicationContext(PojoConfig.class);
+		People people = ac.getBean(People.class);
+	}
+	
 	@SuppressWarnings("resource")
 	static void test获取bean() {
 		ApplicationContext ac = new AnnotationConfigApplicationContext(PojoConfigBusinessPerson.class);

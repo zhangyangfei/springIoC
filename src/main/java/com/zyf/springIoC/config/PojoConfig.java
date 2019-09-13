@@ -4,10 +4,12 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Conditional;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
 
 import com.zyf.springIoC.pojo.People;
+import com.zyf.springIoC.pojo3.Conditional4People;
 
 @Configuration // 表明该类是一个配置类
 public class PojoConfig {
@@ -18,8 +20,10 @@ public class PojoConfig {
 	 * 
 	 * @return
 	 */
+	
 	//@Bean(name = "peopleBean") // 方法返回的实例装备到SpringIoC容器中。给bean命名为userBean。
-	@Bean(name = "peopleBean",initMethod = "initPeople",destroyMethod="destoryPeople") //
+	@Bean(name = "peopleBean",initMethod = "initPeople",destroyMethod="destoryPeople") //增加bean的初始化和销毁自定义逻辑方法
+	@Conditional(Conditional4People.class) //bean条件的装配,Conditional4People.matches()返回true则装配，否则不装配
 	// @Bean//bean的名称默认为方法名，首字母变成小写
 	// @Scope("prototype") //多例模式
 	public People initPeople() {
