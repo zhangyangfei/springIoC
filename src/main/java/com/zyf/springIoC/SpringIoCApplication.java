@@ -1,5 +1,8 @@
 package com.zyf.springIoC;
 
+import java.io.File;
+import java.io.IOException;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -27,10 +30,17 @@ public class SpringIoCApplication {
 		springElTest();
 	}
 
+	@SuppressWarnings({ "resource", "unused" })
 	static void springElTest() {
 		ApplicationContext ac = new AnnotationConfigApplicationContext(PojoConfigStudent.class);
 		SpringElTest springElTest = ac.getBean(SpringElTest.class);
-		System.out.println(springElTest.getInitTime());
+		try {
+			File file = springElTest.getTestFile().getFile();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println("当前时间："+springElTest.getInitTime());
 	}
 	
 	@SuppressWarnings("resource")
