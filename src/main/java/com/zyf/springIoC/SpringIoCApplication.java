@@ -14,6 +14,7 @@ import com.zyf.springIoC.pojo.Dog;
 import com.zyf.springIoC.pojo.People;
 import com.zyf.springIoC.pojo.Person;
 import com.zyf.springIoC.pojo.Student;
+import com.zyf.springIoC.springEL.SpringElTest;
 
 @SpringBootApplication
 public class SpringIoCApplication {
@@ -22,9 +23,16 @@ public class SpringIoCApplication {
 		SpringApplication.run(SpringIoCApplication.class, args);
 //		test装配bean();
 //		test获取bean();
-		test条件获取Bean();
+//		test条件获取Bean();
+		springElTest();
 	}
 
+	static void springElTest() {
+		ApplicationContext ac = new AnnotationConfigApplicationContext(PojoConfigStudent.class);
+		SpringElTest springElTest = ac.getBean(SpringElTest.class);
+		System.out.println(springElTest.getInitTime());
+	}
+	
 	@SuppressWarnings("resource")
 	static void test条件获取Bean() {
 		ApplicationContext ac = new AnnotationConfigApplicationContext(PojoConfig.class);

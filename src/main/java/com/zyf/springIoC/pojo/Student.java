@@ -9,7 +9,7 @@ public class Student extends People {
 
 	private static final long serialVersionUID = 4043318722026127650L;
 
-	// @Value("8")//指定默认值
+	 @Value("8")//指定默认值
 	private int grade;
 
 	public int getGrade() {

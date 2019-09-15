@@ -9,6 +9,6 @@ public class Conditional4People implements Condition {//要实现Condition接口
 	@Override
 	public boolean matches(ConditionContext context, AnnotatedTypeMetadata metadata) {
 		// 增加业务逻辑....
-		return false;
+		return true;
 	}
 }
